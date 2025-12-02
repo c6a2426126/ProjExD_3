@@ -56,6 +56,7 @@ class Bird:
         self.img = __class__.imgs[(+5, 0)]
         self.rct: pg.Rect = self.img.get_rect()
         self.rct.center = xy
+        self.dire = (+5, 0)
 
     def change_img(self, num: int, screen: pg.Surface):
         """
@@ -199,8 +200,8 @@ def main():
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 # スペースキー押下でBeamクラスのインスタンス生成
-                beam = Beam(bird)     #birdの座標を参照しているから    
-                beams.append(beam)   
+                #birdの座標を参照しているから    
+                beams.append(Beam(bird))   
         screen.blit(bg_img, [0, 0]) 
         
         for b, bomb in enumerate(bombs):
